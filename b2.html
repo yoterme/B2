@@ -1,0 +1,32 @@
+<script>
+
+  var score = 0;
+
+  var list_correct = ""
+  var list_wrong = ""
+
+  for (var i=0; i<12; i++) {
+
+    // generating questions and querying user answers
+
+    let m1 = Math.floor(Math.random()*90 + 10);
+    let m2 = Math.floor(Math.random()*90 + 10);
+
+    let answ =  +prompt (`Solve ${m1} x ${m2}`)
+
+    // checking correctness and generating response
+
+    if (Math.round(m1 * m2) == Math.round(answ)) {
+      score++;
+      list_correct += `${i+1}) ${m1} x ${m2} = ${Math.round(m1 * m2)} \n`
+    }
+    else {
+      list_wrong += `${i+1}) ${m1} x ${m2} = ${Math.round(m1 * m2)}. You answered ${answ} \n`
+    }
+  }
+
+  console.log ("You scored "+score+" out of 12");
+  console.log ("Correct answers\n" + list_correct);
+  console.log ("Wrong answers\n" + list_wrong);
+
+</script>
